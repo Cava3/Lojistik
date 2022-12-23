@@ -1,0 +1,99 @@
+html{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+/* Header (barre du haut) */
+header{
+    background-color: darkgray;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    position: fixed;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+header > *{
+    flex-basis: content;
+    margin: 10px;
+    height: fit-content;
+    align-self: center;
+    font-size: xx-large;
+}
+
+header > button{
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+header > button:hover{
+    background-color: grey;
+}
+
+header > button:active{
+    background-color: silver;
+}
+
+
+/* Main (contenu) */
+main{
+    width: 100%;
+    background-color: silver;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main > button#toggle-speech{
+    height: 100px;
+    width: 100px;
+    font-size: xx-large;
+
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+/* Bouton de record */
+main > button#toggle-speech.off{
+    background-color: indianred;
+}
+main > button#toggle-speech:hover{
+    background-color: red;
+}
+main > button#toggle-speech.off:active{
+    background-color: red;
+}
+
+main > button#toggle-speech.on{
+    background-color: limegreen;
+}
+main > button#toggle-speech.on:hover{
+    background-color: green;
+}
+main > button#toggle-speech.on:active{
+    background-color: green;
+}
+
+/* Section d'import/export */
+main > section#imp-exp{
+    width: 100%;
+    background-color: green;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
