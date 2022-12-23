@@ -58,8 +58,8 @@ main{
 }
 
 main > button#toggle-speech{
-    height: 100px;
-    width: 100px;
+    height: 70vw;
+    width: 70vw;
     font-size: xx-large;
 
     border-radius: 50%;
@@ -90,6 +90,7 @@ main > button#toggle-speech.on:active{
 /* Section d'import/export */
 main > section#imp-exp{
     width: 100%;
+    margin-top: 30vh;
     background-color: green;
 
     display: flex;
