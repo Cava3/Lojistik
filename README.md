@@ -84,4 +84,4 @@ dernières méthodes.
 ## Autres documents
 - [Changelog](docs/CHANGELOG.md)
 - [Cahiier des charges](docs/CAHIER_DES_CHARGES.md)
-- [Wireframes](docs/wireframes/)
+- [Wireframes / Croquis](docs/wireframes/)
