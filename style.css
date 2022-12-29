@@ -58,9 +58,9 @@ main{
 }
 
 main > button#toggle-speech{
-    height: 70vw;
-    width: 70vw;
-    font-size: xx-large;
+    height: min(70vw, 60vh);
+    width: min(70vw, 60vh);
+    font-size: min(25vh, 25vw);
 
     border-radius: 50%;
     border: 2px solid black;
@@ -90,11 +90,18 @@ main > button#toggle-speech.on:active{
 /* Section d'import/export */
 main > section#imp-exp{
     width: 100%;
-    margin-top: 30vh;
-    background-color: green;
+    margin-top: 25vh;
+    text-align: center;
 
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+}
+
+main > section#imp-exp > bout_imp_exp > button{
+    height: 7vh;
+    width: 13vh;
+    font-size: 4vh;
+    display: block;
 }
