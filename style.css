@@ -57,6 +57,7 @@ main{
     align-items: center;
 }
 
+/* Bouton de record */
 main > button#toggle-speech{
     height: min(70vw, 60vh);
     width: min(70vw, 60vh);
@@ -66,13 +67,10 @@ main > button#toggle-speech{
     border: 2px solid black;
 }
 
-/* Bouton de record */
 main > button#toggle-speech.off{
     background-color: indianred;
 }
-main > button#toggle-speech:hover{
-    background-color: red;
-}
+main > button#toggle-speech:hover,
 main > button#toggle-speech.off:active{
     background-color: red;
 }
@@ -80,9 +78,7 @@ main > button#toggle-speech.off:active{
 main > button#toggle-speech.on{
     background-color: limegreen;
 }
-main > button#toggle-speech.on:hover{
-    background-color: green;
-}
+main > button#toggle-speech.on:hover,
 main > button#toggle-speech.on:active{
     background-color: green;
 }
@@ -99,9 +95,50 @@ main > section#imp-exp{
     align-items: center;
 }
 
-main > section#imp-exp > bout_imp_exp > button{
+main > section#imp-exp > button_with_label > button{
     height: 7vh;
     width: 13vh;
     font-size: 4vh;
     display: block;
+}
+
+/* Modals */
+
+modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.5);
+}
+
+modal > contenu{
+    display: block;
+    background-color: darkgray;
+    margin: auto;
+    margin-top: 20vh;
+    padding: 20px;
+    border: 1px solid #111;
+    width: 80%;
+    height: 60vh;
+    border-radius: 5px;
+}
+
+close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+close:hover,
+close:focus {
+    color: #000;
+    text-decoration: none;
 }

@@ -14,34 +14,43 @@
         <button id="info">ℹ️</button>
     </header>
 
+
     <!-- Le contenu -->
     <main>
         <section id="imp-exp">
-            <bout_imp_exp id="import" title="import">
-                <label for="import">Importer</label>
-                <button id="import" title="import">📤</button>
-            </bout_imp_exp>
-            <bout_imp_exp id="export">
-                <label for="export">Importer</label>
-                <button id="export">📥</button>
-            </bout_imp_exp>
+            <button_with_label>
+                <label for="import-btn">Importer</label>
+                <button id="import-btn" title="Import">📤</button>
+            </button_with_label>
+
+            <button_with_label>
+                <label for="export-btn">Exporter</label>
+                <button id="export-btn" title="Export">📥</button>
+            </button_with_label>
         </section>
+
         <button id="toggle-speech" class="off">🎙️</button>
     </main>
 
-    <!-- Les modals (popup d'import/export) -->
-    <modal_group>
-        <modal id="import-modal">
-            <h2>Importer</h2>
-            <textarea id="import-textarea" placeholder="Copiez-collez votre texte ici"></textarea>
-            <button id="import-button">Importer</button>
-        </modal>
-        <modal id="export-modal">
-            <h2>Exporter</h2>
-            <textarea id="export-textarea" placeholder="Copiez-collez votre texte ici"></textarea>
-            <button id="export-button">Exporter</button>
-        </modal>
-    </modal_group>
 
+    <!-- Les modals (popup d'import/export) -->
+    <modal id="import-modal">
+        <contenu>
+            <close>&times;</close>
+            <h2>Importer</h2>
+            <button id="upload-file">Depuis un fichier .ljs</button>
+        </contenu>
+    </modal>
+
+    <modal id="export-modal">
+        <contenu>
+            <close id="close-export-modal">&times;</close>
+            <h2>Exporter</h2>
+            <button id="download-file">Vers un fichier .ljs</button>
+        </contenu>
+    </modal>
+
+    <script src="modals.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
