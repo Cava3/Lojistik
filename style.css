@@ -6,6 +6,7 @@ html{
 body{
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }
 
 /* Header (barre du haut) */
@@ -70,7 +71,6 @@ main > button#toggle-speech{
 main > button#toggle-speech.off{
     background-color: indianred;
 }
-main > button#toggle-speech:hover,
 main > button#toggle-speech.off:active{
     background-color: red;
 }
@@ -78,7 +78,6 @@ main > button#toggle-speech.off:active{
 main > button#toggle-speech.on{
     background-color: limegreen;
 }
-main > button#toggle-speech.on:hover,
 main > button#toggle-speech.on:active{
     background-color: green;
 }
@@ -122,23 +121,33 @@ modal > contenu{
     background-color: darkgray;
     margin: auto;
     margin-top: 20vh;
-    padding: 20px;
     border: 1px solid #111;
     width: 80%;
     height: 60vh;
     border-radius: 5px;
+    text-align: center;
 }
 
 close {
-    color: #aaaaaa;
+    color: darkgray;
     float: right;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    z-index: 200;
+    margin: 5px;
 }
 
 close:hover,
 close:focus {
     color: #000;
     text-decoration: none;
+}
+
+modal > contenu > h2 {
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: gray;
+    border-radius: 5px 5px 0 0;
 }
