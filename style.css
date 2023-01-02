@@ -123,7 +123,7 @@ modal > contenu{
     margin-top: 20vh;
     border: 1px solid #111;
     width: 80%;
-    height: 60vh;
+    min-height: 60vh;
     border-radius: 5px;
     text-align: center;
 }
@@ -153,6 +153,7 @@ modal > contenu > h2 {
 }
 
 modal > contenu table {
+    margin: 5px;
     margin-left: 10%;
     width: 80%;
     border-collapse: collapse;
@@ -163,4 +164,8 @@ modal > contenu table th,
 modal > contenu table td {
     border: 1px solid black;
     padding: 5px;
+}
+
+modal > contenu > p {
+    padding: 0.5em 10%;
 }
