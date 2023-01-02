@@ -1,6 +1,7 @@
 var dico_values = {};
 var dico_rows = {};
 var table = document.getElementById("key-pasta-copy-delete");
+var user_prompt = "";
 
 // Association des modals
 document.getElementById("import-btn").onclick = function() {
@@ -31,6 +32,9 @@ function addFromForm() {
 }
 
 function addRow(key, value) {
+    if(key in dico_values)
+        removeRow(key)
+
     dico_values[key] = value;
 
     var raw_row = 
@@ -90,15 +94,22 @@ function stopRecording() {
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 var recognition = new SpeechRecognition();
 recognition.continuous = true;
-
-recognition.onspeechend = function() {
-    console.log("Fin de phrase");
-}
+recognition.lang = "fr-FR";
 
 recognition.onresult = function(event) {
-    transcript = event.results[-1][0].transcript;
-    confidence = event.results[-1][0].confidence;
+    transcript = event.results[event.results.length-1][0].transcript;
+    confidence = event.results[event.results.length-1][0].confidence;
 
-    console.log(confidence+" : "+transcript);
-    console.log(event.results);
+    parseResult(transcript);
+}
+
+function parseResult(result) {
+    if(result.includes("logistique ")){
+        splitted = result.split("logistique ")
+        user_prompt = splitted[splitted.length-1]
+
+        console.log("Prompted : "+user_prompt);
+    }else{
+        console.log("Nothing to see here...");
+    }
 }
