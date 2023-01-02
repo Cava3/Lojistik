@@ -103,14 +103,38 @@ recognition.onresult = function(event) {
     parseResult(transcript);
 }
 
+recognition.onend = function(event){
+    if(recording){
+        recognition.start()
+        console.log("Restarting for inactivity...");
+    }
+}
+
 function parseResult(result) {
+    result = cleanReco(result);
+
     if(! result.includes("logistique ")){
         console.log("Nothing to see here...");
         return;
     }
 
-    splitted = result.split("logistique ")
-    user_prompt = splitted[splitted.length-1]
+    splitted = result.split("logistique ");
+    user_prompt = splitted[splitted.length-1];
 
     console.log("Prompted : "+user_prompt);
+
+    if(user_prompt.split(" ")[0] == "ajoute")
+        console.log("J'ajoute");
+}
+
+function cleanReco(prompt) {
+    to_remove = "?!.,:/;"
+    to_ret = "";
+
+    for(var c of prompt){
+        if(! to_remove.includes(c))
+            to_ret += c;
+    }
+
+    return to_ret.toLowerCase()
 }
