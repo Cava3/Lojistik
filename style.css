@@ -151,3 +151,16 @@ modal > contenu > h2 {
     background-color: gray;
     border-radius: 5px 5px 0 0;
 }
+
+modal > contenu table {
+    margin-left: 10%;
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+modal > contenu table th,
+modal > contenu table td {
+    border: 1px solid black;
+    padding: 5px;
+}

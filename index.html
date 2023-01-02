@@ -9,9 +9,9 @@
 <body>
     <!-- La barre du haut -->
     <header>
-        <button id="values">📝</button>
+        <button id="values-btn">📝</button>
         <h1 id="titre">Lojistik</h1>
-        <button id="info">ℹ️</button>
+        <button id="info-btn">ℹ️</button>
     </header>
 
 
@@ -33,7 +33,58 @@
     </main>
 
 
-    <!-- Les modals (popup d'import/export) -->
+    <!-- Les modals (popups liste, infos, import, export) -->
+    <modal id="values-modal">
+        <contenu>
+            <close>&times;</close>
+            <h2>Liste</h2>
+            <ajouter id="add-form">
+                <input type="text" id="add-key" placeholder="Clé">
+                <input type="text" id="add-value" placeholder="Copy-Pasta">
+                <button id="add-copy-pasta">Ajouter</button>
+            </ajouter>
+            <br>
+            <table id="key-pasta-copy-delete">
+                <tr>
+                    <th>Clé</th>
+                    <th>Contenu</th>
+                    <th>Copier</th>
+                    <th>Supprimer</th>
+                </tr>
+            </table>
+        </contenu>
+    </modal>
+
+    <modal id="info-modal">
+        <contenu>
+            <close>&times;</close>
+            <h2>Informations</h2>
+            <p>Lojistik est un projet de
+                <a href="https://github.com/Cava3" target="_blank">Cava3</a>
+                disponible sur
+                <a href="https://github.com/Cava3/Lojistik" target="_blank">GitHub</a>.
+            </p>
+            <p>
+                L'objectif de ce projet est de créer un outil de gestion de
+                copy-pasta, de manière à ce que l'utilisateur puisse les
+                utiliser facilement et rapidement, simplement en avant cette
+                page dans son navigateur.
+            </p>
+            <p>
+                Lojistik se base sur la reconnaissance vocale, et permet
+                d'ajouter des entrées à la liste, de les supprimer, et de les
+                utiliser sans avoir à changer de fenêtre.
+            </p>
+            <p>
+                Si vous ne souhaitez pas utiliser la reconnaissance vocale,
+                vous pouvez utiliser la liste de valeurs <code>📝</code> en
+                haut à gauche de la page.<br>
+                De là, vous pouvez ajouter des entrées, les supprimer, et
+                les utiliser en cliquant dessus.
+            </p>
+        </contenu>
+    </modal>
+
     <modal id="import-modal">
         <contenu>
             <close>&times;</close>
