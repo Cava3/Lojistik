@@ -104,12 +104,13 @@ recognition.onresult = function(event) {
 }
 
 function parseResult(result) {
-    if(result.includes("logistique ")){
-        splitted = result.split("logistique ")
-        user_prompt = splitted[splitted.length-1]
-
-        console.log("Prompted : "+user_prompt);
-    }else{
+    if(! result.includes("logistique ")){
         console.log("Nothing to see here...");
+        return;
     }
+
+    splitted = result.split("logistique ")
+    user_prompt = splitted[splitted.length-1]
+
+    console.log("Prompted : "+user_prompt);
 }
