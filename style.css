@@ -182,3 +182,12 @@ modal > contenu table th{
 modal > contenu > p {
     padding: 0.5em 10%;
 }
+
+/* Plus spécifique */
+modal > contenu > div#drop-area {
+    border: 2px dashed black;
+    border-radius: 10px;
+    margin: 5%;
+    padding: 20%;
+    text-align: center;
+}

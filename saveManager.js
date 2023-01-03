@@ -32,33 +32,55 @@ function download(filename, content, type) {
     a.click();
 }
 
-function readFile(callback) {
+function fileToText(callback, files){
+    var file = files.files[0];
+    var reader = new FileReader();
+    reader.onload = function () {
+        callback(reader.result);
+    };
+    reader.onerror = function (error) {
+        console.log(error);
+    };
+    reader.readAsText(file);
+}
+
+function askFile(callback) {
     // Create a file input element
     var fileInput = document.createElement('input');
     fileInput.type = 'file';
     fileInput.accept = 'application/x-ljs'; // Only accept .ljs files
 
     // Add an event listener to the file input element that will call the callback function with the file contents when a file is selected
-    fileInput.addEventListener('change', function () {
-        var file = fileInput.files[0];
-        var reader = new FileReader();
-        reader.onload = function () {
-            callback(reader.result);
-        };
-        reader.onerror = function (error) {
-            console.log(error);
-        };
-        reader.readAsText(file);
+    fileInput.addEventListener('change', function (e) {
+        fileToText(callback, fileInput);
     });
 
     // Trigger the file input element to open the file selector dialog
     fileInput.click();
 }
 
-function loadFromFile(){
-    readFile(function (result) {
+//File dropping
+const dropArea = document.getElementById('drop-area');
+dropArea.ondragover = function() {return false;};
+dropArea.ondragleave = function() {return false;};
+dropArea.ondragend = function() {return false;};
+
+dropArea.ondrop = function (e) {
+    e.preventDefault();
+
+    fileToText(function (result) {
         setDico(parseSaveString(result));
-        alert("Fichier chargé avec succès !")
+        alert("Fichier chargé avec succès !");
+    }, e.dataTransfer);
+
+    return false;
+};
+
+// Interface with front
+function loadFromFile(){
+    askFile(function (result) {
+        setDico(parseSaveString(result));
+        alert("Fichier chargé avec succès !");
     });
 }
 
