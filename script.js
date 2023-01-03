@@ -126,8 +126,11 @@ function parseResult(result) {
 
     console.log("Prompted : "+user_prompt);
 
-    if(user_prompt.split(" ")[0] == "ajoute" && user_prompt.includes("pour")){
-        row_to_add = user_prompt.split("ajoute ")[1];
+    if(
+        ["ajouté", "ajoute", "ajoutez"].includes(user_prompt.split(" ")[0]) &&
+        user_prompt.includes("pour")
+    ){
+        row_to_add = user_prompt.slice(user_prompt.split(" ")[0].length+1);
         splitted = row_to_add.split(" ");
         separation = splitted.lastIndexOf("pour");
 
@@ -142,7 +145,7 @@ function parseResult(result) {
 
         console.log("Je supprime "+key);
     }else if(user_prompt.split(" ")[0] == "copie"){
-        key = user_prompt.split("supprime ")[1];
+        key = user_prompt.split("copie ")[1];
         if(key in dico_values)
             navigator.clipboard.writeText(dico_values[key]);
 
@@ -159,6 +162,8 @@ function cleanReco(prompt) {
     for(var c of prompt){
         if(! to_remove.includes(c))
             to_ret += c;
+        else if (c == "-")
+            to_ret += " ";
     }
 
     return to_ret.toLowerCase()
