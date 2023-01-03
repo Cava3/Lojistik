@@ -166,11 +166,15 @@ modal > contenu table {
     width: 80%;
     border-collapse: collapse;
     border: 1px solid black;
-    font-size: 3vw;
 }
 
-modal > contenu table th,
 modal > contenu table td {
+    font-size: 2vw;
+    border: 1px solid black;
+    padding: 5px;
+}
+modal > contenu table th{
+    font-size: 3vw;
     border: 1px solid black;
     padding: 5px;
 }
