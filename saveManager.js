@@ -58,6 +58,7 @@ function readFile(callback) {
 function loadFromFile(){
     readFile(function (result) {
         setDico(parseSaveString(result));
+        alert("Fichier chargé avec succès !")
     });
 }
 

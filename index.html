@@ -44,7 +44,7 @@
                 <button id="add-copy-pasta" onclick="addFromForm()">Ajouter</button>
             </ajouter>
             <br>
-            <table id="key-pasta-copy-delete">
+            <table id="key-pasta-copy-delete" width=80%>
                 <tr>
                     <th>Clé</th>
                     <th>Contenu</th>
@@ -84,24 +84,25 @@
             </p>
             <p>
                 Pour la reconnaissance vocale, voici les différentes actions
-                possible : <br>
-                <ul>
-                    <li>
-                        <code>ajouter</code> : ajoute une entrée à la liste
-                        <br>
-                        Dîtes : "Logistique ajoute [contenu] pour [clé]"
-                    </li>
-                    <li>
-                        <code>supprimer</code> : supprime une entrée de la liste
-                        <br>
-                        Dîtes : "Logistique supprime [clé]"
-                    </li>
-                    <li>
-                        <code>copier</code> : copie une entrée de la liste
-                        <br>
-                        Dîtes : "Logistique copie [clé]"
-                    </li>
+                possible :
             </p>
+            <ul>
+                <li>
+                    <code>ajouter</code> : ajoute une entrée à la liste
+                    <br>
+                    Dîtes : "Logistique ajoute [contenu] pour [clé]"
+                </li>
+                <li>
+                    <code>supprimer</code> : supprime une entrée de la liste
+                    <br>
+                    Dîtes : "Logistique supprime [clé]"
+                </li>
+                <li>
+                    <code>copier</code> : copie une entrée de la liste
+                    <br>
+                    Dîtes : "Logistique copie [clé]"
+                </li>
+            </ul>
         </contenu>
     </modal>
 
@@ -109,7 +110,7 @@
         <contenu>
             <close>&times;</close>
             <h2>Importer</h2>
-            <button id="upload-file" onclick="loadFromFile()">Depuis un fichier .ljs</button>
+            <button id="upload-file" onclick="loadFromFile();closeModal()">Depuis un fichier .ljs</button>
         </contenu>
     </modal>
 
@@ -117,7 +118,7 @@
         <contenu>
             <close id="close-export-modal">&times;</close>
             <h2>Exporter</h2>
-            <button id="download-file" onclick="saveToFile()">Vers un fichier .ljs</button>
+            <button id="download-file" onclick="saveToFile();closeModal()">Vers un fichier .ljs</button>
         </contenu>
     </modal>
 
