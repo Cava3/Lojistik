@@ -4,7 +4,7 @@ var actModal = null;
 
 function openModal(id) {
     if(actModal){
-        actModal.style.display = 'none';
+        closeModal();
     }
     actModal = document.querySelector("modal#"+id);
     actModal.style.display = 'block';
