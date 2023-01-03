@@ -163,3 +163,16 @@ function cleanReco(prompt) {
 
     return to_ret.toLowerCase()
 }
+
+// Save/Load functions
+function setDico(dico){
+    for(var key in dico_values)
+        removeRow(key);
+
+    for(var key in dico)
+        addRow(key, dico[key]);
+}
+
+function getDico(){
+    return dico_values;
+}
