@@ -142,7 +142,11 @@ function parseResult(result) {
 
         console.log("Je supprime "+key);
     }else if(user_prompt.split(" ")[0] == "copie"){
-        console.log("Je copie");
+        key = user_prompt.split("supprime ")[1];
+        if(key in dico_values)
+            navigator.clipboard.writeText(dico_values[key]);
+
+        console.log("Je copie "+key);
     }else{
         console.log("Ordre inconnu");
     }
