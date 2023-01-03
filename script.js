@@ -51,6 +51,9 @@ function addRow(key, value) {
 }
 
 function removeRow(key) {
+    if(!(key in dico_values))
+        return;
+    
     table.removeChild(dico_rows[key]);
 
     delete dico_values[key];
@@ -123,10 +126,21 @@ function parseResult(result) {
 
     console.log("Prompted : "+user_prompt);
 
-    if(user_prompt.split(" ")[0] == "ajoute"){
-        console.log("J'ajoute");
+    if(user_prompt.split(" ")[0] == "ajoute" && user_prompt.includes("pour")){
+        row_to_add = user_prompt.split("ajoute ")[1];
+        splitted = row_to_add.split(" ");
+        separation = splitted.lastIndexOf("pour");
+
+        value = splitted.slice(0, separation).join(" ");
+        key = splitted.slice(separation+1).join(" ");
+        addRow(key, value);
+
+        console.log("Je rajoute "+value+" pour "+key);
     }else if(user_prompt.split(" ")[0] == "supprime"){
-        console.log("Je supprime");
+        key = user_prompt.split("supprime ")[1];
+        removeRow(key);
+
+        console.log("Je supprime "+key);
     }else if(user_prompt.split(" ")[0] == "copie"){
         console.log("Je copie");
     }else{
