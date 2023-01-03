@@ -123,8 +123,15 @@ function parseResult(result) {
 
     console.log("Prompted : "+user_prompt);
 
-    if(user_prompt.split(" ")[0] == "ajoute")
+    if(user_prompt.split(" ")[0] == "ajoute"){
         console.log("J'ajoute");
+    }else if(user_prompt.split(" ")[0] == "supprime"){
+        console.log("Je supprime");
+    }else if(user_prompt.split(" ")[0] == "copie"){
+        console.log("Je copie");
+    }else{
+        console.log("Ordre inconnu");
+    }
 }
 
 function cleanReco(prompt) {
