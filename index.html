@@ -89,7 +89,7 @@
         <contenu>
             <close>&times;</close>
             <h2>Importer</h2>
-            <button id="upload-file">Depuis un fichier .ljs</button>
+            <button id="upload-file" onclick="loadFromFile()">Depuis un fichier .ljs</button>
         </contenu>
     </modal>
 
@@ -97,7 +97,7 @@
         <contenu>
             <close id="close-export-modal">&times;</close>
             <h2>Exporter</h2>
-            <button id="download-file">Vers un fichier .ljs</button>
+            <button id="download-file" onclick="saveToFile()">Vers un fichier .ljs</button>
         </contenu>
     </modal>
 
