@@ -110,6 +110,8 @@
             <div id="drop-area" for="upload-file">
                 <button id="upload-file" onclick="loadFromFile();closeModal()">Depuis un fichier .ljs</button>
             </div>
+            <button id="paste-from-clipboard" onclick="loadFromClipboard();closeModal()">Depuis le presse-papier</button>
+            <button id="read-NFC" onclick="readNFC();closeModal()">Depuis une carte NFC</button>
         </contenu>
     </modal>
 
@@ -118,6 +120,8 @@
             <close id="close-export-modal">&times;</close>
             <h2>Exporter</h2>
             <button id="download-file" onclick="saveToFile();closeModal()">Vers un fichier .ljs</button>
+            <button id="copy-to-clipboard" onclick="copyToClipboard();closeModal()">Vers le presse-papier</button>
+            <button id="write-NFC" onclick="writeNFC();closeModal()">Vers une carte NFC</button>
         </contenu>
     </modal>
 

@@ -87,3 +87,65 @@ function loadFromFile(){
 function saveToFile(){
     download("lojistik.ljs", gen_save_string(getDico()), "application/x-ljs");
 }
+
+function copyToClipboard(){
+    if(!navigator.clipboard){
+        alert("Votre navigateur ne supporte pas le presse-papier.");
+        return;
+    }
+
+    navigator.clipboard.writeText(gen_save_string(getDico()));
+}
+
+function loadFromClipboard(){
+    if(!navigator.clipboard){
+        alert("Votre navigateur ne supporte pas le presse-papier.");
+        return;
+    }
+
+    if(!navigator.clipboard.readText){
+        alert("Votre navigateur est nul.");
+        return;
+    }
+
+    navigator.clipboard.readText().then(function (text) {
+        setDico(parseSaveString(text));
+        alert("Collé avec succès !");
+    });
+}
+
+async function writeNFC() {
+    if ("NDEFReader" in window) {
+        const ndef = new NDEFReader();
+        try {
+            await ndef.write(gen_save_string(getDico()));
+            alert("Écriture réussie.");
+        } catch (error) {
+            console.log(error);
+        }
+    } else {
+        alert("Votre navigateur ne supporte pas les cartes NFC.");
+    }
+}
+
+async function readNFC() {
+    if ("NDEFReader" in window) {
+        const ndef = new NDEFReader();
+        try {
+            await ndef.scan();
+            ndef.onreading = event => {
+                const decoder = new TextDecoder();
+                for (const record of event.message.records) {
+                    setDico(parseSaveString(decoder.decode(record.data)));
+                    break;
+                }
+                alert("Lecture réussie.");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    } else {
+        alert("Votre navigateur ne supporte pas les cartes NFC.");
+    }
+}
+
